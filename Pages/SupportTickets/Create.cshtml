@@ -1,0 +1,58 @@
+﻿@page
+@model SupportPagesPro.Pages.SupportTickets.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Submit a request</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form method="post">
+           
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="width:700px;height:100px">
+                <label asp-for="SupportTicket.YourMail" class="control-label"></label>
+                <input asp-for="SupportTicket.YourMail" class="form-control" required />
+                <span asp-validation-for="SupportTicket.YourMail" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:700px">
+                <label asp-for="SupportTicket.Subject" class="control-label"></label>
+                <input asp-for="SupportTicket.Subject" class="form-control" required />
+                <span asp-validation-for="SupportTicket.Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:700px">
+                <label class="control-label" asp-for="SupportTicket.Description"></label>
+                <textarea class="form-control" asp-for="SupportTicket.Description" rows="5" required ></textarea>
+                <span asp-validation-for="SupportTicket.Description" class="text-black-50">Please enter the details of your request.A member of our support staff will respond as soon as possible.</span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        @*<form enctype="multipart/form-data" method="post">
+            <dl>
+                <dt>
+                    <label asp-for="FileUpload.FormFile"></label>
+                </dt>
+                <dd>
+                    <input asp-for="FileUpload.FormFile" type="file">
+                </dd>
+            </dl>
+            <input asp-page-handler="Upload" class="btn" type="submit" value="Upload">
+        </form>*@
+    </div>
+</div>
+
+<div>
+    <a asp-page="Response">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,57 @@
+﻿@page
+@model SupportPagesPro.Pages.SupportTickets.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SupportTicket</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SupportTicket.Id" />
+            <div class="form-group">
+                <label asp-for="SupportTicket.YourMail" class="control-label"></label>
+                <input asp-for="SupportTicket.YourMail" class="form-control" />
+                <span asp-validation-for="SupportTicket.YourMail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupportTicket.Subject" class="control-label"></label>
+                <input asp-for="SupportTicket.Subject" class="form-control" />
+                <span asp-validation-for="SupportTicket.Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupportTicket.Description" class="control-label"></label>
+                <input asp-for="SupportTicket.Description" class="form-control" />
+                <span asp-validation-for="SupportTicket.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupportTicket.Status" class="control-label"></label>
+                <select name="Status" class="form-control" asp-for="SupportTicket.Status" asp-items="Model.Status">
+                </select>
+                <span asp-validation-for="SupportTicket.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupportTicket.Assigned" class="control-label"></label>
+                <select name="Status" class="form-control" asp-for="SupportTicket.Assigned" asp-items="Model.Assigned">
+                </select>
+                <span asp-validation-for="SupportTicket.Assigned" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

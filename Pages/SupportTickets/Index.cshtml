@@ -1,0 +1,132 @@
+﻿@page
+@model SupportPagesPro.Pages.SupportTickets.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-page="Create">Create New</a> |
+    <a href="Support Analysts">Support Analysts</a> |
+    <a href="LookUps">LookUps</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportTicket[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportTicket[0].YourMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportTicket[0].Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportTicket[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportTicket[0].CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportTicket[0].UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportTicket[0].Status)
+           
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportTicket[0].Assigned)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.SupportTicket)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YourMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assigned)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+
+</tbody>
+</table>
+<div class="col-8" style="text-align:left">
+
+    <h4>Closed Tickets</h4>
+   
+    <br /><br />
+</div>
+
+<div class="col-12">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupportTicket[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupportTicket[0].Subject)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.SupportTicket)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                   
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+             }
+        </tbody>
+    </table>
+</div>
+
